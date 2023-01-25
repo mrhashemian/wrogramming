@@ -1,0 +1,347 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+header, #lectures, #related_books, footer {
+    width: calc(100% - 20px);
+    height: 50px;
+    margin: 10px;
+    background: lightskyblue;
+    overflow: hidden;
+}
+
+/*---------------------- header ----------------------*/
+header {
+    background: url("img/Header.jpg") center center / cover no-repeat;
+    height: 580px;
+}
+
+header .text {
+    margin-top: 200px;
+    text-align: center;
+    color: white;
+    font-size: 38px;
+    letter-spacing: 20px;
+    animation: ltra 3s;
+}
+
+header .button {
+    margin: 80px auto 0 auto;
+    width: 200px;
+    height: 60px;
+    line-height: 58px;
+    border-radius: 16px;
+    text-align: center;
+    top: 300px;
+    font-size: 30px;
+    background: beige;
+    color: #333;
+    transition: 0.6s;
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+}
+
+header .button:hover {
+    background: white;
+    border-radius: 24px;
+}
+
+@keyframes ltra {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    to {
+        width: 100%;
+        opacity: 1;
+    }
+}
+
+/*---------------------- lectures ----------------------*/
+#lectures {
+    background: linear-gradient(135deg, rgb(167, 47, 255, 0.4) 15%, rgb(18, 77, 208, 0.4) 40%, rgb(36, 141, 12, 0.4) 100%),
+    url('img/Background.jpg') no-repeat center 20% / cover;
+    height: 580px;
+    padding: 0 8%;
+}
+
+#lectures .ld {
+    float: left;
+    height: 500px;
+    width: 23%;
+    margin: 40px 1%;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 6px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+#lectures .ld:hover {
+    height: 505px;
+    margin: 28px 1%;
+    background: rgba(255, 255, 255);
+    border-radius: 14px;
+}
+
+#lectures .ld .l-icon {
+    width: 100%;
+    height: 140px;
+    opacity: 0.5;
+    margin: 30px auto;
+}
+
+#lectures .ld .l-icon img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/*---------------------- related_books ----------------------*/
+#related_books {
+    background: #f1f1f1;
+    height: 580px;
+    padding: 0 5%;
+}
+
+#related_books .rd {
+    background-color: transparent;
+    float: left;
+    height: 500px;
+    width: calc(100% / 3 - 6%);
+    margin: 40px 2%;
+    perspective: 1000px;
+}
+
+.rd-inner {
+    cursor: pointer;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: 0.7s;
+}
+
+.rd:hover .rd-inner {
+    transform: rotateY(180deg);
+}
+
+.rd-front, .rd-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.rd-back {
+    background-color: #364c62;
+    color: white;
+    transform: rotateY(180deg);
+    padding: 100px 0;
+}
+
+.buy-button {
+    background-color: #7111cc;
+    height: 40px;
+    font-size: 20px;
+    line-height: 40px;
+    border-radius: 6px;
+    margin: 18px auto;
+    transition: 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    padding: 0 12px;
+    color: white;
+}
+
+.buy-button:hover {
+    background-color: #903cde;
+    border-radius: 10px;
+}
+
+.rd-front {
+    background-color: #fff;
+}
+
+#related_books .rd-front .r-icon {
+    width: 100%;
+    height: 200px;
+}
+
+#related_books .rd-front .r-icon img {
+    width: 100%;
+    height: 100%;
+}
+
+#related_books .rd-front .r-title {
+    background: #7111cc;
+    display: inline-block;
+    padding: 8px 20px;
+    font-size: 20px;
+    border-radius: 4px;
+    color: #fff;
+    position: absolute;
+    top: 162px;
+    left: 20px;
+}
+
+#related_books .rd-front .r-content {
+    padding: 50px;
+    font-size: 20px;
+}
+
+.rd-popup {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.80);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 1;
+}
+
+.rd-popup:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 80%;
+    position: relative;
+    transition: all 1s ease-in-out;
+}
+
+.popup img {
+    margin: 0;
+    width: 30%;
+}
+
+.popup div {
+    margin: 0;
+    width: 70%;
+    padding: 0 50px;
+    float: right;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.close:hover {
+    color: #06D85F;
+}
+
+/*---------------------- footer ----------------------*/
+footer {
+    background: #333;
+    color: #fff;
+    /*height: 300px;*/
+    padding: 50px 50px 65px 50px;
+}
+
+footer > div {
+    float: left;
+    width: calc(50% - 20px);
+}
+
+footer a {
+    text-decoration: none;
+    padding: 0 10px;
+    color: white;
+    transition: 0.3s;
+}
+
+footer a:hover {
+    color: #dcdcdc;
+    text-decoration: underline;
+    font-weight: 900;
+}
+
+/*---------------------- nav ----------------------*/
+.nav {
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 20px;
+    height: 4px;
+    background-color: #333;
+    margin: 4px auto;
+    position: relative;
+    top: 5px;
+    left: -1px;
+    transition: 0.4s;
+}
+
+.nav:hover .bar1 {
+    margin: 2px auto;
+}
+
+.nav-popup {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(90deg, #8251e0 20%, #141fff);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 1;
+    color: white;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.nav-popup:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.nav-popup li {
+    margin: 14px 0;
+    transition: 0.3s;
+}
+
+.nav-popup a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-popup a:hover {
+    color: #b4b4b4;
+    text-decoration: underline;
+}
+
